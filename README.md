@@ -1,4 +1,4 @@
 # FlappyBlock_SDL
 A flappy bird clone written in C using SDL2
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://im7.ezgif.com/tmp/ezgif-7-aeaa712b4f.gif)
