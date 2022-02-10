@@ -9,6 +9,4 @@ Depends on SDL2 and SDL2_ttf
 gcc *.c -o FlappyBird -Wall -std=c99 -lm -lSDL2 -lSDL2_ttf
 ```
 
-![I can't be bothered to figure out that gif madness, so here's a YouTube Video](https://www.youtube.com/watch?v=gl8Qbyfp5kw)
-
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/gl8Qbyfp5kw/0.jpg)](https://www.youtube.com/watch?v=gl8Qbyfp5kw)
