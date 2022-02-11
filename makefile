@@ -1,10 +1,10 @@
-NAME=fml
+NAME=FlappyBlock
 CC=gcc
 CFLAGS=-Wall -std=c99
 LIBS=-lm -lSDL2 -lSDL2_ttf
 
 fml: *.c
-	$(CC) src/*.c -o fml $(CFLAGS) $(LIBS) 
+	$(CC) src/*.c -o $(NAME) $(CFLAGS) $(LIBS) 
 
 object: *.c
 	$(CC) src/*.c -c $(FLAGS) $(LIBS)
