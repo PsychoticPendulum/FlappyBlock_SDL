@@ -47,6 +47,7 @@ void Loop(SDL_Window *window, SDL_Renderer *renderer, struct Game game) {
 		pipes[i].r = 0x0;
 		pipes[i].g = 0xff;
 		pipes[i].b = 0x0;
+		pipes[i].a = 0xff;
 	}
 	pipes[1].x = game.w;
 
@@ -59,6 +60,7 @@ void Loop(SDL_Window *window, SDL_Renderer *renderer, struct Game game) {
 		star[i].r = Random_Int(0x80, 0xff);
 		star[i].g = Random_Int(0x80, 0xff);
 		star[i].b = Random_Int(0x80, 0xff);
+		star[i].a = 0xff;
 	}
 
 	// Fill Entity Structure
@@ -76,6 +78,12 @@ void Loop(SDL_Window *window, SDL_Renderer *renderer, struct Game game) {
 		Update(game, &entity_ptr);
 		Render(renderer, game, colors, &entity_ptr);
 	}
+}
+
+double Get_Distance(int x1, int y1, int x2, int y2) {
+	double xdst = x1-x2;
+	double ydst = y1-y2;
+	return sqrt(xdst*xdst+ydst*ydst);
 }
 
 int Random_Int(int min, int max) {

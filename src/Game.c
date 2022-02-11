@@ -15,7 +15,7 @@ void Clean(SDL_Window *window, SDL_Renderer *renderer, struct Game game) {
 
 bool Init() {
 	struct Game game = {
-		"title", true, false, 1920, 1080, NULL
+		"FlappyBlock", true, false, 1920, 1080, NULL
 	};
 
 	// Initialize SDL

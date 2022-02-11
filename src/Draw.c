@@ -16,9 +16,13 @@ void Draw_Box(SDL_Renderer *renderer, int x, int y, int w, int h, struct Color c
 	rect.y = y;
 	rect.w = w;
 	rect.h = h;
+	if (c.a != 0xff) {
+		SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+	} else {
+		SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
+	}
 	SDL_SetRenderDrawColor(renderer, c.r, c.g, c.b, c.a);
 	SDL_RenderFillRect(renderer, &rect);
-	SDL_RenderDrawRect(renderer, &rect);
 }
 
 void Draw_Texture(SDL_Renderer *renderer, SDL_Texture *texture, int x, int y, int w, int h) {

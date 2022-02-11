@@ -25,6 +25,7 @@ struct Pipe {
 	int r;
 	int g;
 	int b;
+	int a;
 };
 
 struct Star {
@@ -34,6 +35,7 @@ struct Star {
 	int r;
 	int g;
 	int b;
+	int a;
 };
 
 struct Entity {
