@@ -5,7 +5,7 @@ This is FlappyBird. Written in C using the SDL Library. Works on Linux, didn't t
 
 Depends on SDL2 and SDL2_ttf
 
-Compile make or ...
+Compile using **make** or ...
 ```
 gcc *.c -o FlappyBird -Wall -std=c99 -lm -lSDL2 -lSDL2_ttf
 ```
