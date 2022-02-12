@@ -1,16 +1,16 @@
-NAME=FlappyBlock
+NAME=fml
 CC=gcc
 CFLAGS=-Wall -std=c99
 LIBS=-lm -lSDL2 -lSDL2_ttf
 
-fml: *.c
-	$(CC) src/*.c -o $(NAME) $(CFLAGS) $(LIBS) 
+fml: src/*.c
+	$(CC) src/*.c -o fml $(CFLAGS) $(LIBS) 
 
-object: *.c
+object: src/*.c
 	$(CC) src/*.c -c $(FLAGS) $(LIBS)
 
-binary: *.o
+binary: src/.o
 	$(CC) src/*.o -o $(NAME) $(CFLAGS) $(LIBS)
 
 clean:
-	rm -v *.o
+	rm -v src/*.o
