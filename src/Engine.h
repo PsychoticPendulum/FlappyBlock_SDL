@@ -45,7 +45,7 @@ struct Entity {
 };
 
 void Loop(SDL_Window *window, SDL_Renderer *renderer, struct Game game);
-void Handle_Event(struct Game *game, struct Entity **entity);
+void Handle_Event(struct Game *game, struct Entity *entity);
 
 // Mathematical Functions
 double Get_Distance(int x1, int y1, int x2, int y2);

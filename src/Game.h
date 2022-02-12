@@ -7,6 +7,9 @@
 
 #include <getopt.h>
 #include <math.h>
+#include <limits.h>
+
+#include <sys/stat.h>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -17,8 +20,10 @@ struct Game {
 	char *title;
 	bool running;
 	bool paused;
+	bool autoplay;
 	int w;
 	int h;
+	int highscore;
 	TTF_Font *font;
 };
 
@@ -34,3 +39,4 @@ struct Entity;
 
 bool Init();
 void Clean(SDL_Window *window, SDL_Renderer *renderer, struct Game game);
+void Save_Highscore(int score);

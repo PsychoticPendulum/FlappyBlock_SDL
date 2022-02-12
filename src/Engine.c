@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-void Handle_Event(struct Game *game, struct Entity **entity) {
+void Handle_Event(struct Game *game, struct Entity *entity) {
 	SDL_Event event;
 	SDL_PollEvent(&event);
 	switch (event.type) {
@@ -20,7 +20,11 @@ void Handle_Event(struct Game *game, struct Entity **entity) {
 					break;
 				// Jump
 				case SDLK_UP:
-					(*entity)->bird.dy = -24;
+					entity->bird.dy = -24;
+					break;
+				// Enable Autoplay
+				case SDLK_a:
+					game->autoplay = !game->autoplay;
 					break;
 			}
 			break;
@@ -74,10 +78,13 @@ void Loop(SDL_Window *window, SDL_Renderer *renderer, struct Game game) {
 
 	// Main Loop
 	while (game.running) {
-		Handle_Event(&game, &entity_ptr);
-		Update(game, &entity_ptr);
-		Render(renderer, game, colors, &entity_ptr);
+		Handle_Event(&game, entity_ptr);
+		Update(&game, entity_ptr);
+		Render(renderer, game, colors, entity_ptr);
 	}
+	
+	// Save progress
+	Save_Highscore(game.highscore);
 }
 
 double Get_Distance(int x1, int y1, int x2, int y2) {

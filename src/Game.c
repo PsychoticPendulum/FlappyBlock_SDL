@@ -1,5 +1,50 @@
 #include "Game.h"
 
+int Load_Highscore() {
+	// Create .data directory (will return 1 if already exists)
+	mkdir(".data", S_IRWXU);
+
+	// Open file
+	char c;
+	char *score = calloc(ceil(log10(INT_MAX)), sizeof(char));
+	FILE *fptr = fopen(".data/scores.dat", "rb");
+	if (fptr == NULL) {
+		printf("Failed ...\n");	
+		return 0;
+	}
+
+	// Read file
+	int index = 0;
+	while ((c = fgetc(fptr)) != EOF) {
+		score[index++] = c;
+	}
+	
+	// Convert to int and free memory
+	int result = atoi(score);
+	fclose(fptr);
+	free(score);
+
+	printf("Done!\n");
+	return result;
+}
+
+void Save_Highscore(int score) {
+	// Open file
+	printf("Saving data ...\t\t");
+	FILE *fptr = fopen(".data/scores.dat", "w");
+	
+	// Might fail is insufficient permissions to write file
+	if (fptr == NULL) {
+		printf("Failed ...\n");
+		return;
+	}
+
+	// Write and close
+	fprintf(fptr, "%d", score);
+	fclose(fptr);
+	printf("Done!\n");
+}
+
 void Clean(SDL_Window *window, SDL_Renderer *renderer, struct Game game) {
 	printf("\n  -> Renderer ...\t");
 	SDL_DestroyRenderer(renderer);
@@ -15,8 +60,12 @@ void Clean(SDL_Window *window, SDL_Renderer *renderer, struct Game game) {
 
 bool Init() {
 	struct Game game = {
-		"FlappyBlock", true, false, 1920, 1080, NULL
+		"FlappyBlock", true, false, false, 1920, 1080, 0, NULL
 	};
+
+	// Read scores.dat from disk
+	printf("Reading data ...\t");
+	game.highscore = Load_Highscore();
 
 	// Initialize SDL
 	printf("Initializing SDL ...\t");
@@ -24,6 +73,8 @@ bool Init() {
 		printf("Error initializing SDL: %s\n", SDL_GetError());
 		return EXIT_FAILURE;
 	}
+	
+	// Initialize SDL_TTF
 	game.font = TTF_OpenFont("/usr/share/fonts/TTF/Roboto-Medium.ttf", 24);
 	if (!game.font) {
 		printf("Error initializing font: %s\n", SDL_GetError());
@@ -63,6 +114,6 @@ bool Init() {
 	return EXIT_SUCCESS;
 }
 
-int main(int argc, char **argv) {
+int main(void) {
 	return Init();
 }

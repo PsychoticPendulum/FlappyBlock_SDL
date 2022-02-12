@@ -32,7 +32,7 @@ struct Colors Init_Colors() {
 	// DARK_GREEN
 	colors.DARK_GREEN.r = 0x0;
 	colors.DARK_GREEN.g = 0x23;
-	colors.DARK_GREEN.b = 0x0;
+	colors.DARK_GREEN.b = 0x13;
 	colors.DARK_GREEN.a = 0xff;
 
 	// WHITE
@@ -40,56 +40,56 @@ struct Colors Init_Colors() {
 	colors.WHITE.g = 0xff;
 	colors.WHITE.b = 0xff;
 	colors.WHITE.a = 0xff;
-	printf(ANSI_WHITE "  -> WHITE\n" ANSI_RESET);
 	
 	// BLACK
 	colors.BLACK.r = 0x0;
 	colors.BLACK.g = 0x0;
 	colors.BLACK.b = 0x0;
 	colors.BLACK.a = 0xff;
-	printf(ANSI_BLACK "  -> BLACK\n" ANSI_RESET);
 
 	// RED
 	colors.RED.r = 0xff;
 	colors.RED.g = 0x0;
 	colors.RED.b = 0x0;
 	colors.RED.a = 0xff;
-	printf(ANSI_RED "  -> RED\n" ANSI_RESET);
+	printf(ANSI_RED "###" ANSI_RESET);
 
 	// YELLOW
 	colors.YELLOW.r = 0xff;
 	colors.YELLOW.g = 0xff;
 	colors.YELLOW.b = 0x0;
 	colors.YELLOW.a = 0xff;
-	printf(ANSI_YELLOW "  -> YELLOW\n" ANSI_RESET);
+	printf(ANSI_YELLOW "###" ANSI_RESET);
 	
 	// GREEN
 	colors.GREEN.r = 0x0;
 	colors.GREEN.g = 0xff;
 	colors.GREEN.b = 0x0;
 	colors.GREEN.a = 0xff;
-	printf(ANSI_GREEN "  -> GREEN\n" ANSI_RESET);
+	printf(ANSI_GREEN "###" ANSI_RESET);
 	
 	// CYAN
 	colors.CYAN.r = 0x0;
 	colors.CYAN.g = 0xff;
 	colors.CYAN.b = 0xff;
 	colors.CYAN.a = 0xff;
-	printf(ANSI_CYAN "  -> CYAN\n" ANSI_RESET);
+	printf(ANSI_CYAN "###" ANSI_RESET);
 	
 	// BLUE
 	colors.BLUE.r = 0x0;
 	colors.BLUE.g = 0x0;
 	colors.BLUE.b = 0xff;
 	colors.BLUE.a = 0xff;
-	printf(ANSI_BLUE "  -> BLUE\n" ANSI_RESET);
+	printf(ANSI_BLUE "###" ANSI_RESET);
 	
 	// MAGENTA
 	colors.MAGENTA.r = 0xff;
 	colors.MAGENTA.g = 0x0;
 	colors.MAGENTA.b = 0xff;
 	colors.MAGENTA.a = 0xff;
-	printf(ANSI_MAGENTA "  -> MAGENTA\n" ANSI_RESET);
+	printf(ANSI_MAGENTA "###" ANSI_RESET);
+
+	printf("\tDone!\n");
 
 	return colors;
 }
