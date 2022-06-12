@@ -21,10 +21,10 @@ void Render(SDL_Renderer *renderer, struct Game game, struct Colors colors, stru
 				starcol,
 				false);
 		Draw_Glow(renderer,
-					entity->star[i].x,
-					entity->star[i].y,
-					entity->star[i].size,
-					starcol);
+				entity->star[i].x,
+				entity->star[i].y,
+				entity->star[i].size,
+				starcol);
 	}
 
 	// Draw Pipes
@@ -36,12 +36,14 @@ void Render(SDL_Renderer *renderer, struct Game game, struct Colors colors, stru
 			entity->pipe[i].a
 		};
 
+		// Top Pipe
 		Draw_Box(renderer,
 				entity->pipe[i].x,
 				entity->pipe[i].yt,
 				entity->pipe[i].w,
 				entity->pipe[i].h,
 				pipecol, true);
+		// Bottom Pipe
 		Draw_Box(renderer,
 				entity->pipe[i].x,
 				entity->pipe[i].yb,
@@ -72,7 +74,7 @@ void Render(SDL_Renderer *renderer, struct Game game, struct Colors colors, stru
 			entity->bird.y,
 			entity->bird.w,
 			entity->bird.h,
-			colors.YELLOW, true); 
+			tolorstYELLOW, true); 
 
 	// Draw paused
 	if (game.paused) {

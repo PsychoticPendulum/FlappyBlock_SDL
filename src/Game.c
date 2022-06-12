@@ -74,6 +74,14 @@ bool Init() {
 		return EXIT_FAILURE;
 	}
 	
+	// Get SDL Version
+	SDL_version compiled;
+	SDL_version linked;
+	SDL_VERSION(&compiled);
+	SDL_GetVersion(&linked);
+	SDL_Log("SDL Version:\t%u.%u.%u\n",compiled.major, compiled.minor, compiled.patch);
+	SDL_Log("SDL Linked:\t%u.%u.%u\n",linked.major, linked.minor, linked.patch);
+
 	// Initialize SDL_TTF
 	game.font = TTF_OpenFont("/usr/share/fonts/TTF/Roboto-Medium.ttf", 24);
 	if (!game.font) {

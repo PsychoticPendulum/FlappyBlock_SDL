@@ -1,4 +1,4 @@
-NAME=fml
+AME=fml
 CC=gcc
 CFLAGS=-Wall -std=c99
 LIBS=-lm -lSDL2 -lSDL2_ttf

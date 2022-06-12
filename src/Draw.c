@@ -16,6 +16,7 @@ void Draw_Box(SDL_Renderer *renderer, int x, int y, int w, int h, struct Color c
 	rect.y = y;
 	rect.w = w;
 	rect.h = h;
+	// TODO: Write with ternary operation
 	if (c.a != 0xff) {
 		SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	} else {

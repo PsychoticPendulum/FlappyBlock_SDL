@@ -8,8 +8,7 @@ void Update(struct Game *game, struct Entity *entity) {
 	for (int i = 0; i < 64; i++) {
 		entity->star[i].x -= entity->star[i].size / 2;
 		if (entity->star[i].x + entity->star[i].size < 0) {
-			entity->star[i].x = rand()%game->w;
-			entity->star[i].x = rand()%game->h-48;
+			entity->star[i].y = rand()%game->h-48;
 			entity->star[i].size = Random_Int(2,12);
 			entity->star[i].x = game->w + entity->star[i].size;
 		}

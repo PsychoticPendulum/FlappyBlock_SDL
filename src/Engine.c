@@ -2,32 +2,33 @@
 
 void Handle_Event(struct Game *game, struct Entity *entity) {
 	SDL_Event event;
-	SDL_PollEvent(&event);
-	switch (event.type) {
-		// Make game quitable
-		case SDL_QUIT:
-			game->running = false;
+	while (SDL_PollEvent(&event)) {
+		switch (event.type) {
+			// Make game quitable
+			case SDL_QUIT:
+				game->running = false;
+				break;
+			case SDL_KEYDOWN:
+				switch (event.key.keysym.sym) {
+					// Quit game
+					case SDLK_q:
+						game->running = false;
+						break;
+					// Pause game
+					case SDLK_SPACE:
+						game->paused = !game->paused;
+						break;
+					// Jump
+					case SDLK_UP:
+						entity->bird.dy = -24;
+						break;
+					// Enable Autoplay
+					case SDLK_a:
+						game->autoplay = !game->autoplay;
+						break;
+				}
 			break;
-		case SDL_KEYDOWN:
-			switch (event.key.keysym.sym) {
-				// Quit game
-				case SDLK_q:
-					game->running = false;
-					break;
-				// Pause game
-				case SDLK_SPACE:
-					game->paused = !game->paused;
-					break;
-				// Jump
-				case SDLK_UP:
-					entity->bird.dy = -24;
-					break;
-				// Enable Autoplay
-				case SDLK_a:
-					game->autoplay = !game->autoplay;
-					break;
-			}
-			break;
+		}
 	}
 }
 
